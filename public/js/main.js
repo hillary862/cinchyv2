@@ -60,8 +60,8 @@ function setupOnboarding() {
         });
     });
     
-    // Form submission
-    form.addEventListener('submit', async (e) => {
+    // Form submission - show additional questions modal
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         
         if (!selectedGoal || !selectedPersonality) {
@@ -69,29 +69,41 @@ function setupOnboarding() {
             return;
         }
         
-        // Simulate instant matching
-        const matchData = {
-            name: selectedRole === 'mentee' ? 'Alex Johnson' : 'Sarah Chen',
-            role: selectedRole === 'mentee' ? 'mentor' : 'mentee',
-            university: 'University of Toronto',
-            program: 'Computer Science',
-            year: '2018',
-            matchScore: 92,
-            interests: ['Career Growth', 'Networking', 'Work-Life Balance']
-        };
-        
-        showMatch(matchData);
+        // Show additional questions modal
+        document.getElementById('additionalQuestionsModal').classList.add('active');
+    });
+}
+
+// Additional questions modal handling
+function setupAdditionalQuestions() {
+    const modal = document.getElementById('additionalQuestionsModal');
+    const skipBtn = document.getElementById('skipBtn');
+    const continueBtn = document.getElementById('continueBtn');
+    const closeModal = document.getElementById('closeAdditional');
+    
+    // Close modal handlers
+    skipBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        showMatch();
+    });
+    
+    closeModal.addEventListener('click', () => {
+        modal.classList.remove('active');
+    });
+    
+    continueBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        showMatch();
     });
 }
 
 // Show match result
-function showMatch(match) {
+function showMatch() {
     document.getElementById('onboarding').style.display = 'none';
     document.getElementById('matchResult').style.display = 'block';
     
-    document.getElementById('matchName').textContent = match.name;
-    document.getElementById('matchInfo').textContent = `${match.role === 'mentor' ? 'Mentor' : 'Mentee'} • ${match.university} • ${match.program}`;
-    document.getElementById('matchScore').textContent = `${match.matchScore}%`;
+    document.getElementById('matchName').textContent = 'Alex Johnson';
+    document.getElementById('matchInfo').textContent = 'Mentor • University of Toronto • Computer Science';
 }
 
 // Chat modal handling
@@ -139,5 +151,6 @@ function addMessage(text, sender) {
 document.addEventListener('DOMContentLoaded', () => {
     createStarfield();
     setupOnboarding();
+    setupAdditionalQuestions();
     setupChat();
 });

@@ -151,20 +151,22 @@
                 </div>
 
                 <div class="onboarding-actions">
-                    <button type="submit" class="btn-primary">Quick Start</button>
-                    <button type="button" class="btn-secondary" id="advancedBtn">Advanced Matching</button>
+                    <button type="submit" class="btn-primary">Match</button>
                 </div>
             </form>
         </div>
     </section>
 
-    <!-- Onboarding Section - Page 2 -->
-    <section class="onboarding-page2" id="onboardingPage2" style="display: none;">
-        <div class="onboarding-container">
-            <h2>Advanced Matching</h2>
-            <p>Help us find your perfect mentor with more details</p>
-            
-            <form id="advancedForm" class="onboarding-form">
+    <!-- Additional Questions Modal -->
+    <div class="modal" id="additionalQuestionsModal">
+        <div class="modal-content additional-questions-content">
+            <div class="modal-header">
+                <h3>Additional Questions (Optional)</h3>
+                <span class="close-modal" id="closeAdditional">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Help us find your perfect mentor with more details. You can skip this step.</p>
+                
                 <div class="form-group">
                     <label>Year/Program</label>
                     <div class="year-selector">
@@ -214,14 +216,13 @@
                         <button type="button" class="meeting-btn" data-meeting="group">Group Events</button>
                     </div>
                 </div>
-
-                <div class="onboarding-actions">
-                    <button type="button" class="btn-secondary" id="backBtn">Back</button>
-                    <button type="submit" class="btn-primary">Find My Match!</button>
-                </div>
-            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" id="skipBtn">Skip</button>
+                <button type="button" class="btn-primary" id="continueBtn">Continue to Match</button>
+            </div>
         </div>
-    </section>
+    </div>
 
     <!-- Match Result Section -->
     <section class="match-result" id="matchResult" style="display: none;">
