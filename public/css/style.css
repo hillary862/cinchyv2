@@ -142,7 +142,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 20px var(--galaxy-glow), 0 0 40px var(--amber-glow);
 }
 
 .hero-subtitle {
