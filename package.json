@@ -1,0 +1,20 @@
+{
+  "name": "cinchy-v2",
+  "version": "1.0.0",
+  "description": "Mentorship app - Find your perfect mentor instantly",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "sqlite3": "^5.1.6",
+    "socket.io": "^4.7.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.1",
+    "axios": "^1.5.0"
+  }
+}
