@@ -408,6 +408,44 @@ body {
     border-color: var(--royal-violet);
 }
 
+/* Onboarding Actions */
+.onboarding-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Page 2 Styles */
+.onboarding-page2 {
+    padding: 4rem 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.year-selector, .industry-selector, .passion-selector, .meeting-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.year-btn, .industry-btn, .passion-btn, .meeting-btn {
+    flex: 1;
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    padding: 0.75rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.year-btn.active, .industry-btn.active, .passion-btn.active, .meeting-btn.active {
+    background: var(--royal-violet);
+    border-color: var(--royal-violet);
+}
+
 /* Safety Tips */
 .safety-tips {
     background: rgba(65, 34, 116, 0.2);

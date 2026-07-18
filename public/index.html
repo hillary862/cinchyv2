@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MentorMatch - Find Your Perfect Mentor</title>
+    <title>Cinchy v2 - Find Your Perfect Mentor</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -16,7 +16,7 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-star"></i>
-                <span>MentorMatch</span>
+                <span>Cinchy</span>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
@@ -103,88 +103,122 @@
         </div>
     </section>
 
-    <!-- Onboarding Section -->
+    <!-- Onboarding Section - Page 1 -->
     <section class="onboarding" id="onboarding">
         <div class="onboarding-container">
             <h2>Quick Onboarding</h2>
             <p>Answer 3 simple questions to find your perfect match</p>
             
-            <!-- Progress Indicator -->
-            <div class="progress-indicator">
-                <div class="progress-step active">
-                    <span class="step-number">1</span>
-                    <span class="step-label">Role</span>
-                </div>
-                <div class="progress-step">
-                    <span class="step-number">2</span>
-                    <span class="step-label">Goal</span>
-                </div>
-                <div class="progress-step">
-                    <span class="step-number">3</span>
-                    <span class="step-label">Personality</span>
-                </div>
-            </div>
-            
             <form id="onboardingForm" class="onboarding-form">
                 <div class="form-group">
-                    <label><i class="fas fa-user"></i> Are you a mentor or mentee?</label>
+                    <label>Are you a mentor or mentee?</label>
                     <div class="role-selector">
                         <button type="button" class="role-btn active" data-role="mentee">
-                            <i class="fas fa-graduation-cap"></i> Mentee (Seeking guidance)
+                            I'm looking for guidance
                         </button>
                         <button type="button" class="role-btn" data-role="mentor">
-                            <i class="fas fa-chalkboard-teacher"></i> Mentor (Offering guidance)
+                            I want to help others
                         </button>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fas fa-bullseye"></i> Your primary goal:</label>
+                    <label>Your primary goal:</label>
                     <div class="goals-selector">
-                        <button type="button" class="goal-btn" data-goal="stable_job">
-                            <i class="fas fa-briefcase"></i> Stable Job
-                        </button>
-                        <button type="button" class="goal-btn" data-goal="work_life_balance">
-                            <i class="fas fa-balance-scale"></i> Work-Life Balance
-                        </button>
-                        <button type="button" class="goal-btn" data-goal="career_growth">
-                            <i class="fas fa-chart-line"></i> Career Growth
-                        </button>
-                        <button type="button" class="goal-btn" data-goal="networking">
-                            <i class="fas fa-network-wired"></i> Networking
-                        </button>
-                        <button type="button" class="goal-btn" data-goal="personal_growth">
-                            <i class="fas fa-seedling"></i> Personal Growth
-                        </button>
+                        <button type="button" class="goal-btn" data-goal="stable_job">Stable Job</button>
+                        <button type="button" class="goal-btn" data-goal="work_life_balance">Work-Life Balance</button>
+                        <button type="button" class="goal-btn" data-goal="career_growth">Career Growth</button>
+                        <button type="button" class="goal-btn" data-goal="networking">Networking</button>
+                        <button type="button" class="goal-btn" data-goal="personal_growth">Personal Growth</button>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fas fa-heart"></i> Your personality:</label>
+                    <label>Your personality:</label>
                     <div class="personality-selector">
-                        <button type="button" class="personality-btn" data-personality="introvert">
-                            <i class="fas fa-moon"></i> Introvert
-                        </button>
-                        <button type="button" class="personality-btn" data-personality="extrovert">
-                            <i class="fas fa-sun"></i> Extrovert
-                        </button>
-                        <button type="button" class="personality-btn" data-personality="ambivert">
-                            <i class="fas fa-adjust"></i> Ambivert
-                        </button>
+                        <button type="button" class="personality-btn" data-personality="introvert">Introvert</button>
+                        <button type="button" class="personality-btn" data-personality="extrovert">Extrovert</button>
+                        <button type="button" class="personality-btn" data-personality="ambivert">Ambivert</button>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label><i class="fas fa-university"></i> University</label>
+                    <label>University</label>
                     <select id="university" required>
                         <option value="uoft">University of Toronto (U of T)</option>
                         <option value="other">Other</option>
                     </select>
                 </div>
 
-                <button type="submit" class="btn-primary">
-                    <i class="fas fa-rocket"></i> Find My Match!
-                </button>
+                <div class="onboarding-actions">
+                    <button type="submit" class="btn-primary">Quick Start</button>
+                    <button type="button" class="btn-secondary" id="advancedBtn">Advanced Matching</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Onboarding Section - Page 2 -->
+    <section class="onboarding-page2" id="onboardingPage2" style="display: none;">
+        <div class="onboarding-container">
+            <h2>Advanced Matching</h2>
+            <p>Help us find your perfect mentor with more details</p>
+            
+            <form id="advancedForm" class="onboarding-form">
+                <div class="form-group">
+                    <label>Year/Program</label>
+                    <div class="year-selector">
+                        <button type="button" class="year-btn" data-year="1">1st Year</button>
+                        <button type="button" class="year-btn" data-year="2">2nd Year</button>
+                        <button type="button" class="year-btn" data-year="3">3rd Year</button>
+                        <button type="button" class="year-btn" data-year="4">4th Year</button>
+                        <button type="button" class="year-btn" data-year="grad">Graduate</button>
+                        <button type="button" class="year-btn" data-year="alumni">Alumni</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Major/Program</label>
+                    <input type="text" id="program" placeholder="e.g., Computer Science, Economics, etc.">
+                </div>
+
+                <div class="form-group">
+                    <label>Industry Interests (select multiple)</label>
+                    <div class="industry-selector">
+                        <button type="button" class="industry-btn" data-industry="tech">Technology</button>
+                        <button type="button" class="industry-btn" data-industry="finance">Finance</button>
+                        <button type="button" class="industry-btn" data-industry="healthcare">Healthcare</button>
+                        <button type="button" class="industry-btn" data-industry="creative">Creative</button>
+                        <button type="button" class="industry-btn" data-industry="consulting">Consulting</button>
+                        <button type="button" class="industry-btn" data-industry="startup">Startups</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Passion Areas (select multiple)</label>
+                    <div class="passion-selector">
+                        <button type="button" class="passion-btn" data-passion="ai">AI & Machine Learning</button>
+                        <button type="button" class="passion-btn" data-passion="design">Design & UX</button>
+                        <button type="button" class="passion-btn" data-passion="leadership">Leadership</button>
+                        <button type="button" class="passion-btn" data-passion="research">Research</button>
+                        <button type="button" class="passion-btn" data-passion="entrepreneurship">Entrepreneurship</button>
+                        <button type="button" class="passion-btn" data-passion="social_impact">Social Impact</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Meeting Style</label>
+                    <div class="meeting-selector">
+                        <button type="button" class="meeting-btn" data-meeting="coffee">Coffee Chat</button>
+                        <button type="button" class="meeting-btn" data-meeting="virtual">Virtual</button>
+                        <button type="button" class="meeting-btn" data-meeting="group">Group Events</button>
+                    </div>
+                </div>
+
+                <div class="onboarding-actions">
+                    <button type="button" class="btn-secondary" id="backBtn">Back</button>
+                    <button type="submit" class="btn-primary">Find My Match!</button>
+                </div>
             </form>
         </div>
     </section>
