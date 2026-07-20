@@ -89,11 +89,24 @@ body {
     font-weight: 600;
 }
 
-.logo i {
-    background: linear-gradient(135deg, var(--muted-orange) 0%, var(--muted-amber) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* For images with solid backgrounds - makes them blend better */
+.logo-img-bg {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 0 8px var(--amber-glow)) brightness(1.2) contrast(1.1);
+    animation: logo-pulse 4s ease-in-out infinite;
+    mix-blend-mode: screen;
+}
+
+/* For transparent PNG logos - use this class for best results */
+.logo-img-transparent {
+    height: 40px;
+    width: auto;
     filter: drop-shadow(0 0 8px var(--amber-glow));
     animation: logo-pulse 4s ease-in-out infinite;
 }

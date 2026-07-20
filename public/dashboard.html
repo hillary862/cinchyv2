@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Cinchy v2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="starfield" id="starfield"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+<div class="logo">
+    <img src="images/cinchyv2logo.png" alt="Cinchy" class="logo-img">
+</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard" id="dashboard">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Welcome back, <span id="userName">Loading...</span>!</h1>
+                <p>Manage your mentorship journey</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Profile Card -->
+                <div class="dashboard-card profile-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-user"></i> Your Profile</h2>
+                        <button class="btn-icon" id="editProfileBtn" title="Edit Profile">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                    <div class="profile-content">
+                        <div class="profile-item">
+                            <span class="profile-label">Email:</span>
+                            <span id="userEmail">-</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">University:</span>
+                            <span id="userUniversity">-</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Program:</span>
+                            <span id="userProgram">-</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Year:</span>
+                            <span id="userYear">-</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Role:</span>
+                            <span id="userRole">-</span>
+                        </div>
+                        <div class="profile-item">
+                            <span class="profile-label">Interests:</span>
+                            <div class="tags-container" id="userInterests">
+                                <span class="tag">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Match Card -->
+                <div class="dashboard-card match-card" id="currentMatchCard">
+                    <div class="card-header">
+                        <h2><i class="fas fa-heart"></i> Your Current Match</h2>
+                    </div>
+                    <div class="match-content" id="currentMatchContent">
+                        <div class="no-match" id="noMatchMessage">
+                            <p>You don't have a match yet. Complete your onboarding to get matched!</p>
+                            <a href="index.html#onboarding" class="btn-primary">Find a Match</a>
+                        </div>
+                        <div class="match-details" id="matchDetails" style="display: none;">
+                            <div class="match-header">
+                                <img src="https://via.placeholder.com/80" alt="Match" id="matchAvatar">
+                                <div>
+                                    <h3 id="matchName">-</h3>
+                                    <p id="matchInfo">-</p>
+                                </div>
+                            </div>
+                            <div class="match-score">
+                                <span>Match Score: <strong id="matchScore">-</strong></span>
+                            </div>
+                            <div class="match-actions">
+                                <button class="btn-primary" id="openChatFromDashboard">
+                                    <i class="fas fa-comments"></i> Open Chat
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Match History Section -->
+            <div class="dashboard-section">
+                <h2><i class="fas fa-history"></i> Match History</h2>
+                <div class="matches-list" id="matchesList">
+                    <div class="loading">Loading your matches...</div>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div class="dashboard-section">
+                <h2><i class="fas fa-calendar"></i> Your Events</h2>
+                <div class="events-list" id="eventsList">
+                    <div class="loading">Loading your events...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="editProfileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Profile</h3>
+                <span class="close-modal" id="closeEditProfile">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>University</label>
+                        <select id="editUniversity">
+                            <option value="uoft">University of Toronto (U of T)</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Program</label>
+                        <input type="text" id="editProgram" placeholder="e.g., Computer Science">
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <select id="editYear">
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="grad">Graduate</option>
+                            <option value="alumni">Alumni</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Interests (comma separated)</label>
+                        <input type="text" id="editInterests" placeholder="e.g., AI, Design, Leadership">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="cancelEdit">Cancel</button>
+                <button class="btn-primary" id="saveProfile">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal" id="chatModal">
+        <div class="modal-content chat-content">
+            <div class="chat-header">
+                <h3>Chat with <span id="chatWithName"></span></h3>
+                <span class="close-modal" id="closeChat">&times;</span>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will appear here -->
+            </div>
+            <div class="chat-input">
+                <textarea id="messageInput" placeholder="Type your message..." rows="2"></textarea>
+                <button class="btn-primary" id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -87,6 +87,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/match', require('./routes/match'));
 app.use('/api/chat', require('./routes/chat'));
 app.use('/api/events', require('./routes/events'));
+app.use('/api/dashboard', require('./routes/dashboard'));
 
 // Socket.IO for real-time chat
 io.on('connection', (socket) => {
